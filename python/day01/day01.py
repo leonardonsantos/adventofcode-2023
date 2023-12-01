@@ -1,9 +1,9 @@
 import sys
 sys.path.append('..')
 
-from lib import readlines
+from common import readlines
 
-def calibration_value(str):
+def calibration_value1(str):
     char_digits = list(filter(lambda c: c.isdigit(), str))
     digits = list(map(int, char_digits))
 
@@ -14,11 +14,10 @@ def calibration_value(str):
 
     return calc_value(digits)
 
-def main():
-    lines = readlines()
+def part1(lines):
     summed_value = 0
     for line in lines:
-        value = calibration_value(line)
+        value = calibration_value1(line)
         print(f"{line} --> {value}")
         summed_value += value
     return summed_value
@@ -26,4 +25,6 @@ def main():
 if __name__ == '__main__': 
     print("Day 01")
     print("------\n")
-    print(f"Result = {main()}")
+
+    lines = readlines()
+    print(f"Result1 = {part1(lines)}")
